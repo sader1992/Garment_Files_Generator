@@ -8,7 +8,6 @@ namespace Garment_Files_Generator
 {
     public class KroNames
     {
-        //string[] names = new string[3] { "Matt", "Joanne", "Robert" };
         public static string[] boy = {
             "frog_kagerou_남" ,
             "kagerou_남" ,
