@@ -1,93 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Garment_Files_Generator
 {
     public partial class GFG : Form
-    {   
+    {
         public GFG()
         {
             InitializeComponent();
         }
 
-        private void buttonSPR_Click(object sender, EventArgs e)
-        {
-            var SPRF = new System.Windows.Forms.OpenFileDialog();
-            SPRF.Filter = "SPR Files|*.spr";
-            if (SPRF.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string fileToOpen = SPRF.FileName;
-                System.IO.FileInfo File = new System.IO.FileInfo(SPRF.FileName);
-                System.IO.StreamReader reader = new System.IO.StreamReader(fileToOpen);
-                textBoxSPR.Text = SPRF.FileName;
-            }
-        }
-
-        private void buttonACT_Click(object sender, EventArgs e)
-        {
-            var ACTF = new System.Windows.Forms.OpenFileDialog();
-            ACTF.Filter = "ACT Files|*.act";
-            if (ACTF.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string fileToOpen = ACTF.FileName;
-                System.IO.FileInfo File = new System.IO.FileInfo(ACTF.FileName);
-                System.IO.StreamReader reader = new System.IO.StreamReader(fileToOpen);
-                textBoxACT.Text = ACTF.FileName;
-            }
-        }
         private void ButtonGENERATE_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxName.Text))
-            {
-                MessageBox.Show("Input Garment file name.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(textBoxGName.Text))
-            {
-                MessageBox.Show("Input Garment name.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(textBoxSPR.Text))
-            {
-                MessageBox.Show("Import the main Spirt file");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(textBoxACT.Text))
-            {
-                MessageBox.Show("Import the main Act file");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(textBoxSPRd.Text))
-            {
-                MessageBox.Show("Import the Drop Spirt file");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(textBoxACTd.Text))
-            {
-                MessageBox.Show("Import the Drop Act file");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(textBoxitm.Text))
-            {
-                MessageBox.Show("Import the Item BMP file");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(textBoxcoll.Text))
-            {
-                MessageBox.Show("Import the Collection BMP file");
-                return;
-            }
+            
             string path = Path.GetDirectoryName(Application.ExecutablePath);
+            if (!File.Exists(path + @"\boys_list.txt") || !File.Exists(path + @"\girls_list.txt"))
+            {
+                MessageBox.Show("You are missing one of the following files! , boys_list.txt || girls_list.txt");
+                MessageBox.Show("The files contain the list of boys names and girls names!.");
+                return;
+            }
+            string[] boy = File.ReadLines(path + @"\boys_list.txt").ToArray();
+            string[] girl = File.ReadLines(path + @"\girls_list.txt").ToArray();
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox textBox = c as TextBox;
+                    if (textBox.Name == "textBoxinfo")
+                        continue;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        MessageBox.Show("Please Provide " + textBox.AccessibleName);
+                        return;
+                    }
+                }
+            }
             var G_FILENAME = textBoxName.Text;
+            if (G_FILENAME.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 || G_FILENAME.Contains(" "))
+            {
+                MessageBox.Show("Invalid name for a File Name.");
+                return;
+            }
             var G_INGAME = textBoxGName.Text;
             var SPRFR = textBoxSPR.Text;
             var ACTFR = textBoxACT.Text;
@@ -95,41 +51,52 @@ namespace Garment_Files_Generator
             var ACTFRd = textBoxACTd.Text;
             var itmbmp = textBoxitm.Text;
             var collbmp = textBoxcoll.Text;
-            string pathdatam = path + @"\data\sprite\로브\" + G_FILENAME+ @"\남";
+            string pathdatam = path + @"\data\sprite\로브\" + G_FILENAME + @"\남";
             string pathdataf = path + @"\data\sprite\로브\" + G_FILENAME + @"\여";
             string pathdatal = path + @"\data\sprite\아이템";
             string pathdatai = path + @"\data\texture\유저인터페이스\item";
             string pathdatac = path + @"\data\texture\유저인터페이스\collection";
-            if (!Directory.Exists(pathdatam)) {
-                DirectoryInfo DATAFm = Directory.CreateDirectory(pathdatam);
+            if (!Directory.Exists(pathdatam))
+            {
+                Directory.CreateDirectory(pathdatam);
             }
             if (!Directory.Exists(pathdataf))
             {
-                DirectoryInfo DATAFf = Directory.CreateDirectory(pathdataf);
+                Directory.CreateDirectory(pathdataf);
             }
             if (!Directory.Exists(pathdatal))
             {
-                DirectoryInfo DATAFl = Directory.CreateDirectory(pathdatal);
+                Directory.CreateDirectory(pathdatal);
             }
             if (!Directory.Exists(pathdatai))
             {
-                DirectoryInfo DATAFi = Directory.CreateDirectory(pathdatai);
+                Directory.CreateDirectory(pathdatai);
             }
             if (!Directory.Exists(pathdatac))
             {
-                DirectoryInfo DATAFc = Directory.CreateDirectory(pathdatac);
+                Directory.CreateDirectory(pathdatac);
             }
-            System.IO.File.Copy(SPRFRd, path + @"\data\sprite\아이템\" + G_FILENAME + ".spr" , true);
-            System.IO.File.Copy(ACTFRd, path + @"\data\sprite\아이템\" + G_FILENAME + ".act", true);
-            System.IO.File.Copy(itmbmp, path + @"\data\texture\유저인터페이스\item\" + G_FILENAME + ".bmp" , true);
-            System.IO.File.Copy(collbmp, path + @"\data\texture\유저인터페이스\collection\" + G_FILENAME + ".bmp", true);
-            for (int i = 0; i < KroNames.boy.Length; i++)
+            
+            File.Copy(SPRFRd, path + @"\data\sprite\아이템\" + G_FILENAME + ".spr", true);
+            File.Copy(ACTFRd, path + @"\data\sprite\아이템\" + G_FILENAME + ".act", true);
+            File.Copy(itmbmp, path + @"\data\texture\유저인터페이스\item\" + G_FILENAME + ".bmp", true);
+            File.Copy(collbmp, path + @"\data\texture\유저인터페이스\collection\" + G_FILENAME + ".bmp", true);
+            for (int i = 0; i < boy.Length; i++)
             {
-                System.IO.File.Copy(SPRFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\남\" + KroNames.boy[i] + ".spr", true);
-                System.IO.File.Copy(ACTFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\남\" + KroNames.boy[i] + ".act", true);
+                if(!string.IsNullOrEmpty(boy[i]) && boy[i].IndexOfAny(Path.GetInvalidFileNameChars()) < 0 && !boy[i].StartsWith("/"))
+                {
+                    File.Copy(SPRFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\남\" + boy[i] + ".spr", true);
+                    File.Copy(ACTFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\남\" + boy[i] + ".act", true);
+                }
+            }
 
-                System.IO.File.Copy(SPRFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\여\" + KroNames.girl[i] + ".spr", true);
-                System.IO.File.Copy(ACTFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\여\" + KroNames.girl[i] + ".act", true);
+            for (int i = 0; i < girl.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(girl[i]) && girl[i].IndexOfAny(Path.GetInvalidFileNameChars()) < 0 && !girl[i].StartsWith("/"))
+                {
+                    File.Copy(SPRFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\여\" + girl[i] + ".spr", true);
+                    File.Copy(ACTFR, path + @"\data\sprite\로브\" + G_FILENAME + @"\여\" + girl[i] + ".act", true);
+                }
             }
             textBoxinfo.Text += "------------------------------------------------------" + Environment.NewLine;
             textBoxinfo.Text += "==================================" + Environment.NewLine;
@@ -167,66 +134,55 @@ namespace Garment_Files_Generator
             textBoxinfo.Text += "   ROBE_" + G_FILENAME + " = <ViewID>" + Environment.NewLine;
             textBoxinfo.Text += "}" + Environment.NewLine;
             textBoxinfo.Text += "------------------------------------------------------" + Environment.NewLine;
+            textBoxinfo.Text += "transparentItem.lua/transparentItem.lub :" + Environment.NewLine;
+            textBoxinfo.Text += "transparentItemlist = {" + Environment.NewLine;
+            textBoxinfo.Text += "	{ <ViewID>, 255, 255, 25500 }," + Environment.NewLine;
+            textBoxinfo.Text += "}" + Environment.NewLine;
+            textBoxinfo.Text += "------------------------------------------------------" + Environment.NewLine;
             textBoxinfo.Text += " " + Environment.NewLine;
             MessageBox.Show("Done");
-            
         }
 
-        private void textBoxSPRd_TextChanged(object sender, EventArgs e)
+        private void buttonSPR_Click(object sender, EventArgs e)
         {
+            textBoxSPR.Text = ImportFile("SPR Files|*.spr");
+        }
 
+        private void buttonACT_Click(object sender, EventArgs e)
+        {
+            textBoxACT.Text = ImportFile("ACT Files|*.act");
         }
 
         private void buttonSPRd_Click(object sender, EventArgs e)
         {
-            var SPRFd = new System.Windows.Forms.OpenFileDialog();
-            SPRFd.Filter = "SPR Files|*.spr";
-            if (SPRFd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string fileToOpen = SPRFd.FileName;
-                System.IO.FileInfo File = new System.IO.FileInfo(SPRFd.FileName);
-                System.IO.StreamReader reader = new System.IO.StreamReader(fileToOpen);
-                textBoxSPRd.Text = SPRFd.FileName;
-            }
+            textBoxSPRd.Text = ImportFile("SPR Files|*.spr");
         }
 
         private void buttonACTd_Click(object sender, EventArgs e)
         {
-            var ACTFd = new System.Windows.Forms.OpenFileDialog();
-            ACTFd.Filter = "ACT Files|*.act";
-            if (ACTFd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string fileToOpen = ACTFd.FileName;
-                System.IO.FileInfo File = new System.IO.FileInfo(ACTFd.FileName);
-                System.IO.StreamReader reader = new System.IO.StreamReader(fileToOpen);
-                textBoxACTd.Text = ACTFd.FileName;
-            }
+            textBoxACTd.Text = ImportFile("ACT Files|*.act");
         }
 
         private void buttonitm_Click(object sender, EventArgs e)
         {
-            var itmbmp = new System.Windows.Forms.OpenFileDialog();
-            itmbmp.Filter = "BMP Files|*.bmp";
-            if (itmbmp.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string fileToOpen = itmbmp.FileName;
-                System.IO.FileInfo File = new System.IO.FileInfo(itmbmp.FileName);
-                System.IO.StreamReader reader = new System.IO.StreamReader(fileToOpen);
-                textBoxitm.Text = itmbmp.FileName;
-            }
+            textBoxitm.Text = ImportFile("BMP Files|*.bmp");
         }
 
         private void buttoncoll_Click(object sender, EventArgs e)
         {
-            var collbmp = new System.Windows.Forms.OpenFileDialog();
-            collbmp.Filter = "BMP Files|*.bmp";
-            if (collbmp.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            textBoxcoll.Text = ImportFile("BMP Files|*.bmp");
+        }
+
+
+        private string ImportFile(string Type)
+        {
+            var dial = new OpenFileDialog();
+            dial.Filter = Type;
+            if (dial.ShowDialog() == DialogResult.OK)
             {
-                string fileToOpen = collbmp.FileName;
-                System.IO.FileInfo File = new System.IO.FileInfo(collbmp.FileName);
-                System.IO.StreamReader reader = new System.IO.StreamReader(fileToOpen);
-                textBoxcoll.Text = collbmp.FileName;
+                return dial.FileName;
             }
+            throw new Exception("Something Went Wrong Importing The File!");
         }
     }
 }

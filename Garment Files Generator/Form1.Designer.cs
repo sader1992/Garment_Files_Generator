@@ -57,25 +57,30 @@
             // 
             // textBoxSPR
             // 
-            this.textBoxSPR.Location = new System.Drawing.Point(24, 86);
+            this.textBoxSPR.AccessibleName = "Main Sprite File";
+            this.textBoxSPR.Location = new System.Drawing.Point(32, 99);
+            this.textBoxSPR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxSPR.Name = "textBoxSPR";
             this.textBoxSPR.ReadOnly = true;
-            this.textBoxSPR.Size = new System.Drawing.Size(294, 20);
+            this.textBoxSPR.Size = new System.Drawing.Size(391, 22);
             this.textBoxSPR.TabIndex = 1;
             // 
             // textBoxACT
             // 
-            this.textBoxACT.Location = new System.Drawing.Point(24, 133);
+            this.textBoxACT.AccessibleName = "Main Act File";
+            this.textBoxACT.Location = new System.Drawing.Point(32, 153);
+            this.textBoxACT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxACT.Name = "textBoxACT";
             this.textBoxACT.ReadOnly = true;
-            this.textBoxACT.Size = new System.Drawing.Size(294, 20);
+            this.textBoxACT.Size = new System.Drawing.Size(391, 22);
             this.textBoxACT.TabIndex = 2;
             // 
             // buttonACT
             // 
-            this.buttonACT.Location = new System.Drawing.Point(324, 131);
+            this.buttonACT.Location = new System.Drawing.Point(432, 151);
+            this.buttonACT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonACT.Name = "buttonACT";
-            this.buttonACT.Size = new System.Drawing.Size(125, 23);
+            this.buttonACT.Size = new System.Drawing.Size(167, 27);
             this.buttonACT.TabIndex = 3;
             this.buttonACT.Text = "Browse - ACT";
             this.buttonACT.UseVisualStyleBackColor = true;
@@ -83,9 +88,10 @@
             // 
             // buttonSPR
             // 
-            this.buttonSPR.Location = new System.Drawing.Point(324, 84);
+            this.buttonSPR.Location = new System.Drawing.Point(432, 97);
+            this.buttonSPR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSPR.Name = "buttonSPR";
-            this.buttonSPR.Size = new System.Drawing.Size(125, 23);
+            this.buttonSPR.Size = new System.Drawing.Size(167, 27);
             this.buttonSPR.TabIndex = 4;
             this.buttonSPR.Text = "Browse - SPR";
             this.buttonSPR.UseVisualStyleBackColor = true;
@@ -93,9 +99,10 @@
             // 
             // ButtonGENERATE
             // 
-            this.ButtonGENERATE.Location = new System.Drawing.Point(24, 263);
+            this.ButtonGENERATE.Location = new System.Drawing.Point(32, 303);
+            this.ButtonGENERATE.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ButtonGENERATE.Name = "ButtonGENERATE";
-            this.ButtonGENERATE.Size = new System.Drawing.Size(425, 55);
+            this.ButtonGENERATE.Size = new System.Drawing.Size(567, 63);
             this.ButtonGENERATE.TabIndex = 5;
             this.ButtonGENERATE.Text = "GENERATE";
             this.ButtonGENERATE.UseVisualStyleBackColor = true;
@@ -103,103 +110,119 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(32, 36);
+            this.textBoxName.AccessibleName = "Garment file name";
+            this.textBoxName.Location = new System.Drawing.Point(43, 42);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(132, 20);
+            this.textBoxName.Size = new System.Drawing.Size(175, 22);
             this.textBoxName.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 20);
+            this.label1.Location = new System.Drawing.Point(28, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 13);
+            this.label1.Size = new System.Drawing.Size(202, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "Garment File Name (no space)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 70);
+            this.label2.Location = new System.Drawing.Point(35, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(71, 15);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Spirt File";
+            this.label2.Text = "Sprite File";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 117);
+            this.label3.Location = new System.Drawing.Point(39, 135);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(56, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Act File";
             // 
             // textBoxSPRd
             // 
-            this.textBoxSPRd.Location = new System.Drawing.Point(24, 182);
+            this.textBoxSPRd.AccessibleName = "Drop Sprite File";
+            this.textBoxSPRd.Location = new System.Drawing.Point(32, 210);
+            this.textBoxSPRd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxSPRd.Name = "textBoxSPRd";
             this.textBoxSPRd.ReadOnly = true;
-            this.textBoxSPRd.Size = new System.Drawing.Size(110, 20);
+            this.textBoxSPRd.Size = new System.Drawing.Size(145, 22);
             this.textBoxSPRd.TabIndex = 8;
-            this.textBoxSPRd.TextChanged += new System.EventHandler(this.textBoxSPRd_TextChanged);
             // 
             // textBoxACTd
             // 
-            this.textBoxACTd.Location = new System.Drawing.Point(24, 227);
+            this.textBoxACTd.AccessibleName = "Drop Act File";
+            this.textBoxACTd.Location = new System.Drawing.Point(32, 262);
+            this.textBoxACTd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxACTd.Name = "textBoxACTd";
             this.textBoxACTd.ReadOnly = true;
-            this.textBoxACTd.Size = new System.Drawing.Size(110, 20);
+            this.textBoxACTd.Size = new System.Drawing.Size(145, 22);
             this.textBoxACTd.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 166);
+            this.label4.Location = new System.Drawing.Point(32, 192);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.Size = new System.Drawing.Size(103, 15);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Spirt drop File";
+            this.label4.Text = "Sprite drop File";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 211);
+            this.label5.Location = new System.Drawing.Point(32, 243);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.Size = new System.Drawing.Size(88, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Act drop File";
             // 
             // textBoxitm
             // 
-            this.textBoxitm.Location = new System.Drawing.Point(258, 182);
+            this.textBoxitm.AccessibleName = "Item Icon";
+            this.textBoxitm.Location = new System.Drawing.Point(344, 210);
+            this.textBoxitm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxitm.Name = "textBoxitm";
             this.textBoxitm.ReadOnly = true;
-            this.textBoxitm.Size = new System.Drawing.Size(110, 20);
+            this.textBoxitm.Size = new System.Drawing.Size(145, 22);
             this.textBoxitm.TabIndex = 12;
             // 
             // textBoxcoll
             // 
-            this.textBoxcoll.Location = new System.Drawing.Point(258, 227);
+            this.textBoxcoll.AccessibleName = "Item Collection Image";
+            this.textBoxcoll.Location = new System.Drawing.Point(344, 262);
+            this.textBoxcoll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxcoll.Name = "textBoxcoll";
             this.textBoxcoll.ReadOnly = true;
-            this.textBoxcoll.Size = new System.Drawing.Size(110, 20);
+            this.textBoxcoll.Size = new System.Drawing.Size(145, 22);
             this.textBoxcoll.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(255, 166);
+            this.label6.Location = new System.Drawing.Point(340, 192);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.Size = new System.Drawing.Size(68, 15);
             this.label6.TabIndex = 14;
             this.label6.Text = "Item Icon";
             // 
             // buttonSPRd
             // 
-            this.buttonSPRd.Location = new System.Drawing.Point(140, 180);
+            this.buttonSPRd.Location = new System.Drawing.Point(187, 208);
+            this.buttonSPRd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSPRd.Name = "buttonSPRd";
-            this.buttonSPRd.Size = new System.Drawing.Size(75, 23);
+            this.buttonSPRd.Size = new System.Drawing.Size(100, 27);
             this.buttonSPRd.TabIndex = 15;
             this.buttonSPRd.Text = "SPR";
             this.buttonSPRd.UseVisualStyleBackColor = true;
@@ -207,9 +230,10 @@
             // 
             // buttonACTd
             // 
-            this.buttonACTd.Location = new System.Drawing.Point(140, 224);
+            this.buttonACTd.Location = new System.Drawing.Point(187, 258);
+            this.buttonACTd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonACTd.Name = "buttonACTd";
-            this.buttonACTd.Size = new System.Drawing.Size(75, 23);
+            this.buttonACTd.Size = new System.Drawing.Size(100, 27);
             this.buttonACTd.TabIndex = 16;
             this.buttonACTd.Text = "ACT";
             this.buttonACTd.UseVisualStyleBackColor = true;
@@ -217,9 +241,10 @@
             // 
             // buttonitm
             // 
-            this.buttonitm.Location = new System.Drawing.Point(374, 180);
+            this.buttonitm.Location = new System.Drawing.Point(499, 208);
+            this.buttonitm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonitm.Name = "buttonitm";
-            this.buttonitm.Size = new System.Drawing.Size(75, 23);
+            this.buttonitm.Size = new System.Drawing.Size(100, 27);
             this.buttonitm.TabIndex = 17;
             this.buttonitm.Text = "SMALL BMP";
             this.buttonitm.UseVisualStyleBackColor = true;
@@ -227,9 +252,10 @@
             // 
             // buttoncoll
             // 
-            this.buttoncoll.Location = new System.Drawing.Point(374, 224);
+            this.buttoncoll.Location = new System.Drawing.Point(499, 258);
+            this.buttoncoll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttoncoll.Name = "buttoncoll";
-            this.buttoncoll.Size = new System.Drawing.Size(75, 23);
+            this.buttoncoll.Size = new System.Drawing.Size(100, 27);
             this.buttoncoll.TabIndex = 18;
             this.buttoncoll.Text = "LARGE BMP";
             this.buttoncoll.UseVisualStyleBackColor = true;
@@ -238,43 +264,48 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(255, 211);
+            this.label7.Location = new System.Drawing.Point(340, 243);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.Size = new System.Drawing.Size(104, 15);
             this.label7.TabIndex = 19;
             this.label7.Text = "Collection Icon";
             // 
             // textBoxinfo
             // 
-            this.textBoxinfo.Location = new System.Drawing.Point(455, 20);
+            this.textBoxinfo.Location = new System.Drawing.Point(607, 23);
+            this.textBoxinfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxinfo.Multiline = true;
             this.textBoxinfo.Name = "textBoxinfo";
             this.textBoxinfo.ReadOnly = true;
             this.textBoxinfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxinfo.Size = new System.Drawing.Size(407, 298);
+            this.textBoxinfo.Size = new System.Drawing.Size(541, 343);
             this.textBoxinfo.TabIndex = 20;
             // 
             // textBoxGName
             // 
-            this.textBoxGName.Location = new System.Drawing.Point(258, 36);
+            this.textBoxGName.AccessibleName = "Garment InGame name";
+            this.textBoxGName.Location = new System.Drawing.Point(344, 42);
+            this.textBoxGName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxGName.Name = "textBoxGName";
-            this.textBoxGName.Size = new System.Drawing.Size(132, 20);
+            this.textBoxGName.Size = new System.Drawing.Size(175, 22);
             this.textBoxGName.TabIndex = 6;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(266, 20);
+            this.label8.Location = new System.Drawing.Point(355, 23);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 13);
+            this.label8.Size = new System.Drawing.Size(155, 15);
             this.label8.TabIndex = 7;
             this.label8.Text = "Garment InGame Name";
             // 
             // GFG
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 329);
+            this.ClientSize = new System.Drawing.Size(1168, 380);
             this.Controls.Add(this.textBoxinfo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.buttoncoll);
@@ -302,8 +333,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "GFG";
-            this.Text = "Garment Files Generator v1.0                                                     " +
+            this.Text = "Garment Files Generator v2.0                                                     " +
     "                  By Sader Fawall (sader1992)";
             this.ResumeLayout(false);
             this.PerformLayout();
